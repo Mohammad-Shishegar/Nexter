@@ -1,0 +1,55 @@
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;1,100;1,200;1,300;1,400;1,500;1,600&family=Nunito:ital,wght@0,200;0,300;0,400;0,600;0,700;1,200;1,300;1,400;1,600;1,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,600;1,200;1,300;1,400;1,600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,200;0,300;0,400;0,600;1,200;1,300;1,400;1,600&family=Nunito:ital,wght@0,200;0,300;0,400;0,600;1,200;1,300;1,400;1,600&display=swap");
+//Color
+$color-primary: #c69963;
+$color-primary-dark: #B28451;
+$color-secondary:#101d2c;
+$color-grey-light-1:#f9f7f6;
+$color-grey-light-2:#aaa;
+$color-grey-dark-1:#54483a;
+$color-grey-dark-2:#6d5d4b;
+// Font
+$font_primary:"Nunito",
+sans-serif;
+$font_display:"Josefin Sans",
+sans-serif;
+//Reponsive
+$bp-largest:75em; //1200px
+$bp-larg:62em; //1000px
+$bp-medium:50em; //800px
+$bp-small:37.5em; //600px
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+html {
+    box-sizing: border-box;
+    font-size: 62.5%; //10px/16px = 62.5% => 1rem = 10px
+    @media only screen and (max-width: $bp-largest) {
+        font-size: 50%;
+    }
+}
+
+body {
+    font-family: $font_primary;
+    color: $color-grey-dark-2;
+    font-weight: 300;
+}
+
+.container {
+    display: grid;
+    grid-template-rows: 80vh min-content 40vw repeat(3, min-content);
+    grid-template-columns: [sidebar-start] 8rem [sidebar-end full-start] minmax(6rem, 1fr) [center-start] repeat(8, [col-start] minmax(min-content, 14rem)[col-end])[center-end] minmax(6rem, 1fr) [full-end];
+    @media only screen and (max-width: $bp-larg) {
+        grid-template-rows: 6rem 80vh min-content 40vw repeat(3, min-content);
+        grid-template-columns: [ full-start] minmax(6rem, 1fr) [center-start] repeat(8, [col-start] minmax(min-content, 14rem)[col-end])[center-end] minmax(6rem, 1fr) [full-end];
+    }
+    @media only screen and (max-width: $bp-medium) {
+        grid-template-rows: 6rem calc(100vh - 6rem);
+    }
+}
